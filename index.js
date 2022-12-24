@@ -11,7 +11,7 @@ app.post("/webhooks", async (req, res) => {
   if (body?.type == "WITHDRAW") {
     const txn = body.nativeTransfers.find(x => x.fromUserAccount == wallet)
     if (!txn) { return; }
-    const { data } = await axios.get(`https://api.helius.xyz/v0/${wallet}/balances?api-key=J7A5XwBwh9vBHBqXFvnbvKC7SaQ4ztHua4oL2z8LY5vP`)
+    const { data } = await axios.get(`https://api.helius.xyz/v0/${wallet}/balances?api-key=7f57a350-0a93-4c0b-a17a-d9e9273e3b4d`)
     const { nativeBalance: balanceRemaining } = data
     if (balanceRemaining < MINIMUM_BALANCE) {
       invokeAlertingFunction();
